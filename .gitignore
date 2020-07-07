@@ -34,4 +34,4 @@
 # Image
 *.ppm
 
-build
+/build/
