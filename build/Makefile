@@ -68,24 +68,13 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dudestin/rayTrace/saarcor
+CMAKE_SOURCE_DIR = /home/dudestin/rayTrace/ttuEmulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dudestin/rayTrace/saarcor/build
+CMAKE_BINARY_DIR = /home/dudestin/rayTrace/ttuEmulation/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -98,11 +87,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dudestin/rayTrace/saarcor/build/CMakeFiles /home/dudestin/rayTrace/saarcor/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dudestin/rayTrace/ttuEmulation/build/CMakeFiles /home/dudestin/rayTrace/ttuEmulation/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dudestin/rayTrace/saarcor/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dudestin/rayTrace/ttuEmulation/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -131,44 +131,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named rayTriangleIntersect
+# Target rules for targets named main
 
 # Build rule for target.
-rayTriangleIntersect: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rayTriangleIntersect
-.PHONY : rayTriangleIntersect
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-rayTriangleIntersect/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rayTriangleIntersect.dir/build.make CMakeFiles/rayTriangleIntersect.dir/build
-.PHONY : rayTriangleIntersect/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
-rayTriangleIntersect.o: rayTriangleIntersect.cpp.o
+main.o: main.cpp.o
 
-.PHONY : rayTriangleIntersect.o
+.PHONY : main.o
 
 # target to build an object file
-rayTriangleIntersect.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rayTriangleIntersect.dir/build.make CMakeFiles/rayTriangleIntersect.dir/rayTriangleIntersect.cpp.o
-.PHONY : rayTriangleIntersect.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-rayTriangleIntersect.i: rayTriangleIntersect.cpp.i
+main.i: main.cpp.i
 
-.PHONY : rayTriangleIntersect.i
+.PHONY : main.i
 
 # target to preprocess a source file
-rayTriangleIntersect.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rayTriangleIntersect.dir/build.make CMakeFiles/rayTriangleIntersect.dir/rayTriangleIntersect.cpp.i
-.PHONY : rayTriangleIntersect.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-rayTriangleIntersect.s: rayTriangleIntersect.cpp.s
+main.s: main.cpp.s
 
-.PHONY : rayTriangleIntersect.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-rayTriangleIntersect.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rayTriangleIntersect.dir/build.make CMakeFiles/rayTriangleIntersect.dir/rayTriangleIntersect.cpp.s
-.PHONY : rayTriangleIntersect.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -178,10 +178,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... rayTriangleIntersect"
-	@echo "... rayTriangleIntersect.o"
-	@echo "... rayTriangleIntersect.i"
-	@echo "... rayTriangleIntersect.s"
+	@echo "... main"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

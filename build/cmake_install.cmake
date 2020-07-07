@@ -1,4 +1,4 @@
-# Install script for directory: /home/dudestin/rayTrace/saarcor
+# Install script for directory: /home/dudestin/rayTrace/ttuEmulation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/dudestin/rayTrace/saarcor/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dudestin/rayTrace/ttuEmulation/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
