@@ -21,11 +21,11 @@ void writeColor(std::ostream &out,const Ray& ray,const std::vector<Triangle>& tr
 }
 
 int main(void){
-  auto triVector = Triangle::loadPLYAsTriangle("../bunny/reconstruction/bun_zipper_res4.ply");
+  auto triVector = Triangle::loadPLYAsTriangle("../dragon_recon/dragon_vrip_res3.ply");
 
   constexpr auto aspect_ratio = 16.f/9.f;
-  constexpr int image_width = 384;
-  constexpr int image_height = static_cast<int>(image_width / aspect_ratio);
+  constexpr unsigned short image_width = 384;
+  constexpr unsigned short image_height = static_cast<unsigned short>(image_width / aspect_ratio);
   constexpr auto viewport_height = 2.f;
   constexpr auto viewport_width = aspect_ratio * viewport_height;
   constexpr auto focal_length = -2.f;
