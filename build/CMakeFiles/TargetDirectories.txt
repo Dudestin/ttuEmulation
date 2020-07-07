@@ -1,0 +1,3 @@
+/home/dudestin/rayTrace/saarcor/build/CMakeFiles/edit_cache.dir
+/home/dudestin/rayTrace/saarcor/build/CMakeFiles/rebuild_cache.dir
+/home/dudestin/rayTrace/saarcor/build/CMakeFiles/rayTriangleIntersect.dir
