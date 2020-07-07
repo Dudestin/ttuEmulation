@@ -5,6 +5,6 @@ using namespace Eigen;
 
 struct Ray{
 public:
-  Vector3d origin,direction;
-  Ray(const Vector3d& orig,const Vector3d& dir) : origin(orig), direction(dir.normalized()) {}
+  Vector3f origin,direction;
+  Ray(const Vector3f& orig,const Vector3f& dir) : origin(orig), direction(dir.normalized()) {}
 };

@@ -9,11 +9,11 @@
 using namespace Eigen;
 
 struct Triangle{
-  Vector3d v0,v1,v2;
+  Vector3f v0,v1,v2;
 public:
   bool isIntersect(const Ray& ray) const{
     const float EPSILON = 0.0000001;
-    using Vector3D = Vector3d;
+    using Vector3D = Vector3f;
     Vector3D vertex0 = this->v0;
     Vector3D vertex1 = this->v1;  
     Vector3D vertex2 = this->v2;
@@ -48,7 +48,7 @@ public:
 
     // Matrix3d A;
     // A << -ray.direction, v1-v0, v2-v0;
-    // Vector3d x = A.householderQr().solve(ray.origin-v0);
+    // Vector3f x = A.householderQr().solve(ray.origin-v0);
     // if (x(0) >= 0 && x(1) >= 0 && x(2) >= 0 && x(1)+x(2) <= 1){
     //   return true;
     // }

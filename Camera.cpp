@@ -6,7 +6,7 @@ void Camera::setDir(Polar3d<float> loc){
 }
 
 // cartesian move
-void Camera::setDir(Vector3d direction){
+void Camera::setDir(Vector3f direction){
   
 }
 
@@ -16,7 +16,7 @@ void Camera::setLoc(Polar3d<float> loc){
 }
 
 // cartesian move
-void Camera::setLoc(Vector3d loc){
+void Camera::setLoc(Vector3f loc){
 
 }
 
@@ -24,11 +24,11 @@ Polar3d<float> Camera::getDir() const{
 
 }
 
-Vector3d Camera::getLoc() const{
+Vector3f Camera::getLoc() const{
 
 }
 
 
-Vector3d Camera::getRay(float u,float v){
+Vector3f Camera::getRay(float u,float v){
   
 }

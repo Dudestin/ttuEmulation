@@ -9,10 +9,10 @@
 using namespace Eigen;
 
 using Object = std::vector<Triangle>;
-using Coordinate = std::pair<Object, Vector3d>;
+using Coordinate = std::pair<Object, Vector3f>;
 
 class World{
-  Vector3d origin;
+  Vector3f origin;
   std::list<std::unique_ptr<Coordinate>> objList;
 public:
   

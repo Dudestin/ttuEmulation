@@ -30,17 +30,17 @@ int main(void){
   constexpr auto viewport_width = aspect_ratio * viewport_height;
   constexpr auto focal_length = -2.f;
 
-  Vector3d origin {-0.07,0.1,-0.3};
-  Vector3d horizontal = {viewport_width,0,0};
-  Vector3d vertical = {0,viewport_height,0};  
-  Vector3d lower_left_corner = origin - horizontal/2 - vertical/2 - Vector3d(0,0,focal_length);
+  Vector3f origin {-0.07,0.1,-0.3};
+  Vector3f horizontal = {viewport_width,0,0};
+  Vector3f vertical = {0,viewport_height,0};  
+  Vector3f lower_left_corner = origin - horizontal/2 - vertical/2 - Vector3f(0,0,focal_length);
 
   std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
   for (int j = image_height-1; j>= 0;--j){
     std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
     for (int i = 0; i < image_width; ++i){
-      auto u = double(i) / (image_width-1);
-      auto v = double(j) / (image_height-1);
+      auto u = float(i) / (image_width-1);
+      auto v = float(j) / (image_height-1);
       Ray ray {origin, lower_left_corner + u*horizontal + v*vertical - origin};
       writeColor(std::cout, ray, triVector);
     }

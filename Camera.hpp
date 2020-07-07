@@ -7,17 +7,17 @@
 using namespace Eigen;
 
 class Camera{
-  Vector3d loc;
-  Vector3d dir;
+  Vector3f loc;
+  Vector3f dir;
 public:
   void setDir(Polar3d<float> loc);
-  void setDir(Vector3d direction);
+  void setDir(Vector3f direction);
   void setLoc(Polar3d<float> loc);
-  void setLoc(Vector3d loc);  
+  void setLoc(Vector3f loc);  
 
   Polar3d<float> getDir() const;
-  Vector3d getLoc() const;
+  Vector3f getLoc() const;
   
-  Vector3d getRay(float u, float v);
+  Vector3f getRay(float u, float v);
   
 };
