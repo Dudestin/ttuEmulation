@@ -9,7 +9,7 @@ struct Sphere : Primitive{
   float r;
 public:
   bool isIntersect(const Ray& ray) const override{
-    auto oc = ray.origin - center;
+    Vector3f oc = ray.origin - center;
     float a = ray.direction.dot(ray.direction);
     float b = 2.0 * oc.dot(ray.direction);
     float c = oc.dot(oc) - pow(r,2);

@@ -31,7 +31,12 @@
 *.out
 *.app
 
-# Image
+# Artifacts
 *.ppm
+*.jpeg
+*.jpg
+*.png
+*.gif
 
+# Build
 /build/
