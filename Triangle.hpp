@@ -1,18 +1,19 @@
 #pragma once
-#include <Eigen/Dense>
-#include <tuple>
+#include <Eigen/Core>
 #include <vector>
+#include <limits>
 
 #include "./lib/happly.h"
 #include "Ray.hpp"
+#include "Primitive.hpp"
 
 using namespace Eigen;
 
-struct Triangle{
+struct Triangle : Primitive{
   Vector3f v0,v1,v2;
-public:
-  bool isIntersect(const Ray& ray) const{
-    const float EPSILON = 0.0000001;
+  static constexpr double EPSILON {std::numeric_limits<float>::epsilon()};
+
+  bool isIntersect(const Ray& ray) const override{
     using Vector3D = Vector3f;
     Vector3D vertex0 = this->v0;
     Vector3D vertex1 = this->v1;  
@@ -43,16 +44,6 @@ public:
     }
     else // This means that there is a line intersection but not a ray intersection.
         return false;
-
-
-
-    // Matrix3d A;
-    // A << -ray.direction, v1-v0, v2-v0;
-    // Vector3f x = A.householderQr().solve(ray.origin-v0);
-    // if (x(0) >= 0 && x(1) >= 0 && x(2) >= 0 && x(1)+x(2) <= 1){
-    //   return true;
-    // }
-    // return false;
   }
   
   template <typename T>

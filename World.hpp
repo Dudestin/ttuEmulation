@@ -15,5 +15,5 @@ class World{
   Vector3f origin;
   std::list<std::unique_ptr<Coordinate>> objList;
 public:
-  
+
 };

@@ -46,6 +46,5 @@ int main(void){
       writeColor(std::cout, ray, triVector);
     }
   }
-
   return 0;
 }

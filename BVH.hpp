@@ -1,6 +1,7 @@
 #pragma once
 #include <Eigen/Dense>
 #include <concepts>
+#include <memory>
 
 template <unsigned short N,unsigned short CompCapacity,typename PrimType,typename CoordinateType>
 /*
@@ -38,9 +39,19 @@ class BVH{
     struct Node nodes[CompCapacity];
   };
 
+  std::shared_ptr<PrimType> Prim;
+
 public:
-  unsigned int insertPrimitive(PrimType prim); // return Primitive Id.
-  int deletePrimitive(unsigned int id); // return success:0/failure:-1
-  unsigned int getPrimitiveCount(); // return primitive count
-  unsigned int getCompressionBlockCount(); // return Compression Block count
+  unsigned int insertPrimitive(std::shared_ptr<PrimType> prim, Eigen::Vector3f coord){ // return Primitive Id.
+    
+  }
+  int deletePrimitive(unsigned int id){ // return success:0/failure:-1
+    
+  }
+  unsigned int getPrimitiveCount(){ // return primitive count
+    
+  }
+  unsigned int getCompressionBlockCount(){ // return Compression Block count
+
+  }
 };

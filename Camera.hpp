@@ -19,5 +19,4 @@ public:
   Vector3f getLoc() const;
   
   Vector3f getRay(float u, float v);
-  
 };
