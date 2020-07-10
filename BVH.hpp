@@ -3,12 +3,13 @@
 #include <concepts>
 #include <memory>
 
-template <unsigned short N,unsigned short CompCapacity,typename PrimType,typename CoordinateType>
+#include "Object.hpp"
+
+template <unsigned short N,unsigned short CompCapacity,typename CoordinateType>
 /*
   Template Params Description
   unsigned short N - N-ary Tree Structure
   unsigned short CompCapacity - Compression Block Node Capacity
-  PrimType - Primitive Type
   floatType - Using Floating-Point Type
  */
 class BVH{
@@ -31,7 +32,7 @@ class BVH{
   template <unsigned short M> // Inherit M element from parent node
   struct LeafNode : Node{
     CoordinateType elem[M];
-    PrimType* prim;
+    Object* prim;
   };
 
   struct Compression_Block{
@@ -39,13 +40,11 @@ class BVH{
     struct Node nodes[CompCapacity];
   };
 
-  std::shared_ptr<PrimType> Prim;
-
 public:
-  unsigned int insertPrimitive(std::shared_ptr<PrimType> prim, Eigen::Vector3f coord){ // return Primitive Id.
+  virtual void insertPrimitive(std::shared_ptr<Object> ptr, Eigen::Vector3f coord){ // return Primitive Id.
     
   }
-  int deletePrimitive(unsigned int id){ // return success:0/failure:-1
+  virtual void  deletePrimitive(unsigned int id){ // return success:0/failure:-1
     
   }
   unsigned int getPrimitiveCount(){ // return primitive count

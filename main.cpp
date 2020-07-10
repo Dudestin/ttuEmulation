@@ -4,6 +4,7 @@
 
 #include "Ray.hpp"
 #include "Triangle.hpp"
+#include "Object.hpp"
 
 void writeColor(std::ostream &out,const Ray& ray,const std::vector<Triangle>& triVector) {
   // Write the translated [0,255] value of each color component.
@@ -21,7 +22,7 @@ void writeColor(std::ostream &out,const Ray& ray,const std::vector<Triangle>& tr
 }
 
 int main(void){
-  auto triVector = Triangle::loadPLYAsTriangle("../dragon_recon/dragon_vrip_res3.ply");
+  auto triVector = TriangleMeshObject("../dragon_recon/dragon_vrip_res3.ply");
 
   constexpr auto aspect_ratio = 16.f/9.f;
   constexpr unsigned short image_width = 384;

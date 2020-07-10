@@ -9,9 +9,17 @@
 
 using namespace Eigen;
 
-struct Triangle : Primitive{
+struct TrianglePrimitive : Primitive{
   Vector3f v0,v1,v2;
-  static constexpr double EPSILON {std::numeric_limits<float>::epsilon()};
+  static constexpr float EPSILON {std::numeric_limits<float>::epsilon()};
+
+  TrianglePrimitive(const Eigen::Vector3f& V0,const Eigen::Vector3f& V1,const Eigen::Vector3f& V2): v0{V0},v1{V1},v2{V2} {}
+
+  template <typename T>
+  TrianglePrimitive(const std::array<T, 3>& arr0,const std::array<T, 3>& arr1,const std::array<T, 3>& arr2) :
+    v0 {arr0[0],arr0[1],arr0[2]},
+    v1 {arr1[0],arr1[1],arr1[2]},
+    v2 {arr2[0],arr2[1],arr2[2]} {}
 
   bool isIntersect(const Ray& ray) const override{
     using Vector3D = Vector3f;
@@ -45,26 +53,9 @@ struct Triangle : Primitive{
     else // This means that there is a line intersection but not a ray intersection.
         return false;
   }
-  
-  template <typename T>
-  Triangle(const std::array<T, 3>& arr0,const std::array<T, 3>& arr1,const std::array<T, 3>& arr2) :
-    v0 {arr0[0],arr0[1],arr0[2]},
-    v1 {arr1[0],arr1[1],arr1[2]},
-    v2 {arr2[0],arr2[1],arr2[2]} {}
-
-  static std::vector<Triangle> loadPLYAsTriangle(const std::string& filename){
-    happly::PLYData plyIn(filename);
-    auto vertices = plyIn.getVertexPositions();
-    auto facies = plyIn.getFaceIndices<size_t>();
-    std::vector<Triangle> triangleVec;
-    for (const auto& x:facies){
-      triangleVec.emplace_back(vertices[x[0]],vertices[x[1]],vertices[x[2]]);
-    }
-    return triangleVec;
-  }
 };
 
-std::ostream& operator<<(std::ostream& os, const Triangle& value){
+std::ostream& operator<<(std::ostream& os, const TrianglePrimitive& value){
   os << "Triangle Vertices" << std::endl;
   os << "Vertex0: " << value.v0 << std::endl;
   os << "Vertex1: " << value.v1 << std::endl;
