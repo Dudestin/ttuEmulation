@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(saarcor LANGUAGES CXX)
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
-set(CMAKE_CXX_FLAGS "-isystem /usr/local/include/eigen3/ -O3 -mavx2")
+set(CMAKE_CXX_FLAGS "-isystem /usr/include/eigen3/ -O3 -mavx2")
 add_executable(main main.cpp)
 target_link_libraries(main Eigen3::Eigen)
